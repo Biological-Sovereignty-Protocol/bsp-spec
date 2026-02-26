@@ -208,4 +208,4 @@ No single guardian can restore access alone. No central server is involved. The 
 
 ---
 
-*Ambrósio Institute · ambrosio.health · bsp.dev*
+*Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*

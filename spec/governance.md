@@ -79,4 +79,4 @@ This prevents unilateral changes — including by the Institute's founder. The p
 
 ---
 
-*Ambrósio Institute · ambrosio.health · bsp.dev*
+*Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*

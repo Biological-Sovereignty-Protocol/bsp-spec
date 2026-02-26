@@ -126,4 +126,4 @@ The seed phrase is generated at BEO creation and must be written down and stored
 
 ---
 
-*Ambrósio Institute · ambrosio.health · bsp.dev*
+*Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*

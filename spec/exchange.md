@@ -220,4 +220,4 @@ const result = await client.submit(record, token)
 
 ---
 
-*Ambrósio Institute · ambrosio.health · bsp.dev*
+*Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*

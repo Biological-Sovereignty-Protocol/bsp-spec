@@ -188,4 +188,4 @@ Each IEO type is authorized for specific exchange intents:
 
 ---
 
-*Ambrósio Institute · ambrosio.health · bsp.dev*
+*Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*

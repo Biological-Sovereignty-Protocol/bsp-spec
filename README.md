@@ -2,7 +2,7 @@
 
 > **"The protocol that connects every health system on earth."**
 > Version 0.2 — Specification Draft
-> Published by the Ambrósio Institute · [ambrosio.health](https://ambrosio.health) · [bsp.dev](https://bsp.dev)
+> Published by the Ambrósio Institute · [ambrosioinstitute.org](https://ambrosioinstitute.org) · [biologicalsovereigntyprotocol.com](https://biologicalsovereigntyprotocol.com)
 
 ---
 
@@ -148,4 +148,4 @@ Any individual, company, or institution may implement the BSP, build on it, or d
 
 *The protocol belongs to the world. The intelligence belongs to Ambrósio. The sovereignty belongs to the individual.*
 
-**Ambrósio Institute** · [ambrosio.health](https://ambrosio.health) · [bsp.dev](https://bsp.dev)
+**Ambrósio Institute** · [ambrosioinstitute.org](https://ambrosioinstitute.org) · [biologicalsovereigntyprotocol.com](https://biologicalsovereigntyprotocol.com)

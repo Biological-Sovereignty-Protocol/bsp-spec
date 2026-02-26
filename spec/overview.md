@@ -123,4 +123,4 @@ BSP defines how data is structured and transported — not what conclusions to d
 
 ---
 
-*Ambrósio Institute · ambrosio.health · bsp.dev*
+*Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*
