@@ -1,0 +1,44 @@
+{
+  "_comment": "Example BEO — Biological Entity Object (BSP v0.2)",
+  "beo_id": "550e8400-e29b-41d4-a716-446655440000",
+  "domain": "andre.bsp",
+  "created_at": "2026-02-24T14:32:00Z",
+  "version": "0.2.0",
+  "public_key": "ed25519:4K8Yg2MnPxQ7rZv3wB9sT1uJ5hDcLfN6eA0oE2iK",
+  "arweave_tx": "7xK9mQ3vN8pL2rT5wY1uA4sE6jH0fB",
+  "sovereignty": {
+    "guardians": [
+      {
+        "contact_hash": "sha256:3a7b9c4d2e1f8a5b6c7d8e9f0a1b2c3d",
+        "public_key": "ed25519:7xM2PqRsT9nL3kW6vY4uC8bA1eH5jF0",
+        "accepted": true,
+        "added_at": "2026-02-24T14:35:00Z"
+      },
+      {
+        "contact_hash": "sha256:1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e",
+        "public_key": "ed25519:9pL4mN7qK2vR8tY5uA3sE1bH6jC0fW",
+        "accepted": true,
+        "added_at": "2026-02-24T14:38:00Z"
+      },
+      {
+        "contact_hash": "sha256:9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a",
+        "public_key": "ed25519:2sT7nM9qL5kR3vW8uY6bA4eH1jC0pF",
+        "accepted": false,
+        "added_at": "2026-02-24T14:40:00Z"
+      }
+    ],
+    "recovery_scheme": "2-of-3",
+    "seed_phrase_hash": "sha256:4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f",
+    "consent_log": [
+      {
+        "token_id": "tok_fleury_202602",
+        "ieo_domain": "fleury.bsp",
+        "intents": ["SUBMIT_BIORECORD"],
+        "categories": ["BSP-GL", "BSP-HM", "BSP-HR", "BSP-LV"],
+        "granted_at": "2026-02-24T15:00:00Z",
+        "expires_at": "2027-02-24T15:00:00Z",
+        "revoked": false
+      }
+    ]
+  }
+}
