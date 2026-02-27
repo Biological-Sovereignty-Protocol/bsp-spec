@@ -1,0 +1,37 @@
+{
+    "_comment": "Example ConsentToken — BSP v1.0. Issued by the BEO holder authorizing a physician to read cardiovascular and longevity lab data for 90 days.",
+    "token_id": "tok_9a3f8c20-b1d4-4e7a-9c2f-5e8b1d3a7f0e",
+    "beo_id": "550e8400-e29b-41d4-a716-446655440000",
+    "beo_domain": "andre.bsp",
+    "ieo_id": "c2d4e6f8-a0b2-4c6e-8f0a-2b4d6e8f0a2b",
+    "ieo_domain": "dr-carlos.bsp",
+    "ieo_name": "Dr. Carlos Mendes — Functional Medicine",
+    "granted_at": "2026-02-26T10:00:00Z",
+    "expires_at": "2026-05-27T10:00:00Z",
+    "revoked": false,
+    "revoked_at": null,
+    "scope": {
+        "intents": [
+            "READ_RECORDS"
+        ],
+        "categories": [
+            "BSP-LA",
+            "BSP-CV",
+            "BSP-IM"
+        ],
+        "levels": [
+            "CORE",
+            "STANDARD"
+        ],
+        "period": {
+            "from": "2024-01-01T00:00:00Z",
+            "to": null
+        },
+        "max_records": 500
+    },
+    "revocable": true,
+    "owner_signature": "ed25519:5kL9mN1pQ3rS7tU2vW6xY0zA4bC8dE",
+    "token_hash": "sha256:a7f3b2c8d4e9f0a1b6c2d7e3f8a0b5c1",
+    "arweave_tx": "6bQ3rT7vO2mL5sU9wV4cD8hH0kJ4iF",
+    "version": "1.0.0"
+}
