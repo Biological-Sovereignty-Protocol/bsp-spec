@@ -149,7 +149,7 @@ Direct users to authorize your IEO. You can deep-link into bsp-id-web or impleme
 // Generate a consent request link
 const consentUrl = client.consent.buildRequestUrl({
   ieoId: yourIeo.id,
-  scope: ['BSP.L2.HM', 'BSP.L2.LF'],  // biomarker taxonomy codes
+  scope: ['BSP-HM', 'BSP-LF'],  // biomarker taxonomy category codes
   period: {
     start: Date.now(),
     end: Date.now() + 90 * 24 * 60 * 60 * 1000, // 90 days
@@ -200,14 +200,14 @@ const result = await exchange.submitRecords({
   consentToken: verifiedToken,
   records: [
     {
-      biomarkerCode: 'BSP.L2.HM.HGB',  // Hemoglobin
+      biomarkerCode: 'BSP-HM-HGB',  // Hemoglobin
       value: 14.2,
       unit: 'g/dL',
       collectedAt: '2024-01-15T09:30:00Z',
       method: 'venous_blood',
     },
     {
-      biomarkerCode: 'BSP.L2.HM.HCT',  // Hematocrit
+      biomarkerCode: 'BSP-HM-HCT',  // Hematocrit
       value: 42.1,
       unit: '%',
       collectedAt: '2024-01-15T09:30:00Z',
@@ -225,7 +225,7 @@ console.log('Transaction ID:', result.txId); // Arweave transaction — permanen
 // Fetch all records your IEO is authorized to read for a specific BEO
 const records = await exchange.queryRecords({
   beoId: patientBeoId,
-  scope: ['BSP.L2.HM'],
+  scope: ['BSP-HM'],
   dateRange: {
     from: '2024-01-01',
     to: '2024-12-31',
@@ -250,19 +250,19 @@ BSP uses four SmartWeave contracts on Arweave. Deploy them in this order (each d
 ```bash
 cd bsp-spec/contracts  # or obtain from the registry repository
 
-# 1. BEO Registry — stores all biological entity identities
-arweave deploy beo-registry.js --wallet ./wallet.json
+# 1. BEORegistry — stores all biological entity identities
+arweave deploy BEORegistry --wallet ./wallet.json
 
-# 2. IEO Registry — stores all institutional identities
-arweave deploy ieo-registry.js --wallet ./wallet.json
+# 2. IEORegistry — stores all institutional identities
+arweave deploy IEORegistry --wallet ./wallet.json
 
-# 3. Consent Registry — stores issued ConsentTokens
-arweave deploy consent-registry.js --wallet ./wallet.json \
+# 3. AccessControl — manages consent tokens and access permissions
+arweave deploy AccessControl --wallet ./wallet.json \
   --init '{"beoRegistry":"<BEO_TX_ID>","ieoRegistry":"<IEO_TX_ID>"}'
 
-# 4. BioRecord Index — indexes submitted records
-arweave deploy biorecord-index.js --wallet ./wallet.json \
-  --init '{"consentRegistry":"<CONSENT_TX_ID>"}'
+# 4. DomainRegistry — manages the .bsp namespace
+arweave deploy DomainRegistry --wallet ./wallet.json \
+  --init '{"accessControl":"<ACCESS_CONTROL_TX_ID>"}'
 ```
 
 Save all four transaction IDs. They are permanent and identify your deployment.
@@ -288,8 +288,8 @@ ARWEAVE_WALLET_PATH=./wallet.json
 
 BSP_BEO_REGISTRY_TX=<YOUR_BEO_TX_ID>
 BSP_IEO_REGISTRY_TX=<YOUR_IEO_TX_ID>
-BSP_CONSENT_REGISTRY_TX=<YOUR_CONSENT_TX_ID>
-BSP_BIORECORD_INDEX_TX=<YOUR_INDEX_TX_ID>
+BSP_ACCESS_CONTROL_TX=<YOUR_ACCESS_CONTROL_TX_ID>
+BSP_DOMAIN_REGISTRY_TX=<YOUR_DOMAIN_REGISTRY_TX_ID>
 
 PORT=3001
 ```

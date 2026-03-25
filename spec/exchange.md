@@ -29,7 +29,7 @@ ConsentToken {
   token_id:    string       // Unique token identifier
   beo_id:      string       // The BEO this token grants access to
   ieo_id:      string       // The institution this token is granted to
-  intents:     BSPIntent[]  // Authorized operations (e.g. ["SUBMIT_BIORECORD"])
+  intents:     BSPIntent[]  // Authorized operations (e.g. ["SUBMIT_RECORD"])
   categories:  string[]     // Authorized BSP categories (e.g. ["BSP-LA", "BSP-GL"])
   granted_at:  ISO8601      // When the holder granted this token
   expires_at:  ISO8601      // When this token expires (null = persistent)
@@ -53,21 +53,21 @@ ConsentToken {
 
 ## Exchange Operations
 
-### SUBMIT_BIORECORD
+### SUBMIT_RECORD
 
 Submit a biological measurement to a BEO.
 
-**Required consent:** `SUBMIT_BIORECORD` intent + authorized category matching the biomarker
+**Required consent:** `SUBMIT_RECORD` intent + authorized category matching the biomarker
 
 ```typescript
 // Request
-SubmitBioRecordRequest {
+SubmitRecordRequest {
   token:    ConsentToken    // Valid, non-expired, non-revoked consent token
   record:   BioRecord       // The BioRecord to submit
 }
 
 // Response
-SubmitBioRecordResponse {
+SubmitRecordResponse {
   success:    boolean
   record_id:  string        // Assigned record_id
   arweave_tx: string        // Arweave transaction ID — permanent record
@@ -77,7 +77,7 @@ SubmitBioRecordResponse {
 
 **Validation rules:**
 1. ConsentToken must be valid, not expired, not revoked
-2. Token's `intents` must include `SUBMIT_BIORECORD`
+2. Token's `intents` must include `SUBMIT_RECORD`
 3. Token's `categories` must include the record's `category`
 4. Record's `beo_id` must match token's `beo_id`
 5. Record must pass schema validation (all required fields present)
@@ -205,7 +205,7 @@ const token = await consentManager.getToken(beoId)
 if (!token || token.isExpired()) {
   // Request new consent from user
   const request = await consentManager.requestConsent(beoId, {
-    intents: ['SUBMIT_BIORECORD'],
+    intents: ['SUBMIT_RECORD'],
     categories: ['BSP-GL', 'BSP-HM'],
     expiresIn: 365 * 24 * 60 * 60  // 1 year
   })

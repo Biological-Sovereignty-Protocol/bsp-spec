@@ -179,7 +179,7 @@ Each IEO type is authorized for specific exchange intents:
 
 | Intent | Description | Authorized IEO Types |
 |---|---|---|
-| `SUBMIT_BIORECORD` | Submit biological measurements to a BEO | LAB, HSP, WRB, PHY |
+| `SUBMIT_RECORD` | Submit biological measurements to a BEO | LAB, HSP, WRB, PHY |
 | `READ_RECORDS` | Read BioRecords from a BEO | PHY, PLT, INS (aggregate only) |
 | `REQUEST_CERTIFICATION` | Apply for BSP certification | All types |
 | `ANALYZE_VITALITY` | Submit BioRecords for AVA analysis | PLT |

@@ -28,6 +28,7 @@ BEO {
 
   // ─── CRYPTOGRAPHY ──────────────────────────────────────────────
   public_key:  string     // Owner's public key (RSA-4096 or Ed25519)
+  key_version: number     // Increments on key rotation (starts at 1)
 
   // ─── DATA ──────────────────────────────────────────────────────
   records:     BioRecord[]  // All biological measurements
@@ -35,6 +36,10 @@ BEO {
 
   // ─── SOVEREIGNTY ───────────────────────────────────────────────
   sovereignty: SovereigntyMeta  // Ownership, consent, and recovery metadata
+
+  // ─── STATUS ────────────────────────────────────────────────────
+  active_recovery: object | null  // Active recovery request metadata, or null
+  locked_at:       string | null  // ISO8601 timestamp if BEO is locked, or null
 }
 
 SovereigntyMeta {
@@ -45,10 +50,11 @@ SovereigntyMeta {
 }
 
 Guardian {
-  contact:    string    // How to reach this guardian (encrypted)
-  public_key: string    // Guardian's public key for the recovery protocol
-  accepted:   boolean   // Whether they have accepted the guardian role
-  added_at:   ISO8601
+  contact:     string              // How to reach this guardian (encrypted)
+  public_key:  string             // Guardian's public key for the recovery protocol
+  role:        string             // 'primary' | 'secondary' | 'tertiary'
+  status:      'PENDING' | 'ACTIVE'  // Whether they have accepted the guardian role
+  accepted_at: string | null      // ISO8601 timestamp of acceptance, or null if pending
 }
 ```
 
@@ -189,13 +195,17 @@ No single guardian can restore access alone. No central server is involved. The 
   "created_at": "2026-02-24T14:32:00Z",
   "version": "0.2.0",
   "public_key": "ed25519:4K8Yg2...",
+  "key_version": 1,
+  "active_recovery": null,
+  "locked_at": null,
   "sovereignty": {
     "guardians": [
       {
-        "contact_hash": "sha256:3a7b9c...",
+        "contact": "encrypted:3a7b9c...",
         "public_key": "ed25519:7xM2Pq...",
-        "accepted": true,
-        "added_at": "2026-02-24T14:35:00Z"
+        "role": "primary",
+        "status": "ACTIVE",
+        "accepted_at": "2026-02-24T14:35:00Z"
       }
     ],
     "recovery_scheme": "2-of-3",
