@@ -86,6 +86,23 @@ bsp-spec/
 
 ---
 
+## Implementation Guides
+
+**Already understand the spec and want to build?** Skip straight to the step-by-step guides:
+
+| Guide | Who it's for |
+|---|---|
+| [Implementation Guide](docs/implementation-guide.md) | App developers, institution integrators, and protocol operators |
+
+The guide covers three paths:
+- **User App Developer** — build an app where users create their BSP identity
+- **Institution (IEO) Developer** — receive BSP-authorized health data as a lab or clinic
+- **Protocol Integrator** — run your own BSP node and relayer
+
+It includes working code snippets and a Common Pitfalls section.
+
+---
+
 ## Quick Start
 
 ### For Developers & Laboratories
