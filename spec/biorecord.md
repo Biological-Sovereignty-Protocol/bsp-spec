@@ -128,7 +128,7 @@ Any system can submit a BioRecord to a BEO — subject to the holder's consent v
 
 ```typescript
 // TypeScript SDK
-import { BioRecordBuilder, ExchangeClient } from '@bsp/sdk'
+import { BioRecordBuilder, ExchangeClient } from 'bsp-sdk'
 
 const record = new BioRecordBuilder()
   .beoId('550e8400-e29b-41d4-a716-446655440000')

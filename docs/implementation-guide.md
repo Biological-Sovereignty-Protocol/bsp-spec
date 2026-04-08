@@ -44,7 +44,7 @@ npm run dev
 A user's identity starts with a seed phrase that generates a keypair, which then creates their Biological Entity Object (BEO).
 
 ```typescript
-import { BSPClient, generateKeypair } from '@bsp/sdk';
+import { BSPClient, generateKeypair } from 'bsp-sdk';
 
 const client = new BSPClient({ relayerUrl: process.env.NEXT_PUBLIC_BSP_RELAYER_URL });
 
@@ -124,7 +124,7 @@ Present this step as mandatory during onboarding, not optional.
 An Institutional Entity Object (IEO) is your institution's on-chain identity. Create it once.
 
 ```typescript
-import { BSPClient } from '@bsp/sdk';
+import { BSPClient } from 'bsp-sdk';
 
 const client = new BSPClient({ relayerUrl: 'https://api.bsp.protocol' });
 
@@ -188,7 +188,7 @@ async function handleDataSubmission(payload) {
 ### Step 4 — Submit BioRecords using ExchangeClient
 
 ```typescript
-import { ExchangeClient } from '@bsp/sdk';
+import { ExchangeClient } from 'bsp-sdk';
 
 const exchange = new ExchangeClient({
   ieoId: yourIeo.id,
@@ -325,7 +325,7 @@ Any BSP-compatible app can point at your relayer by setting the relayer URL:
 NEXT_PUBLIC_BSP_RELAYER_URL=https://relayer.yourdomain.com
 ```
 
-Apps and SDKs are relayer-agnostic. The same `@bsp/sdk` code works against any compliant relayer.
+Apps and SDKs are relayer-agnostic. The same `bsp-sdk` code works against any compliant relayer.
 
 ---
 

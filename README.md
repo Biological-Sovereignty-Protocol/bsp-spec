@@ -118,7 +118,7 @@ It includes working code snippets and a Common Pitfalls section.
 Install an official SDK:
 ```bash
 # TypeScript / JavaScript
-npm install @bsp/sdk
+npm install bsp-sdk
 
 # Python
 pip install bsp-sdk

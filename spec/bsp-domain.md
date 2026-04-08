@@ -50,7 +50,7 @@ The following prefixes are reserved by the Ambrósio Institute:
 
 ```typescript
 // Resolve a .bsp domain to a BEO or IEO
-import { DomainResolver } from '@bsp/sdk'
+import { DomainResolver } from 'bsp-sdk'
 
 const resolver = new DomainResolver()
 
