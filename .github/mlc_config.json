@@ -1,0 +1,7 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^https://doi.org" }
+  ],
+  "timeout": "10s",
+  "retryCount": 2
+}
