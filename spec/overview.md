@@ -90,7 +90,7 @@ All exchange operations are subject to the **AccessControl** smart contract — 
 
 BSP records are stored on **Arweave** — a permanent, decentralized storage protocol designed to preserve data for 200+ years.
 
-AO processes managing BEO identities, domain registrations, and access permissions run on Arweave's hyper-parallel compute platform. This ensures:
+Smart contracts (Move modules) managing BEO identities, domain registrations, and access permissions run on Aptos. This ensures:
 - No single point of failure
 - No company (including Ambrósio Institute) can alter the rules unilaterally
 - Data written to BSP infrastructure exists permanently

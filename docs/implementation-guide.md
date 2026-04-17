@@ -23,7 +23,7 @@ cp .env.example .env.local
 
 ### Step 2 — Configure your relayer URL
 
-The relayer is the off-chain API that bridges your app to AO processes on Arweave. Point your app at it:
+The relayer is the off-chain API that bridges your app to BSP smart contracts on Aptos. Point your app at it:
 
 ```env
 # .env.local
@@ -243,25 +243,25 @@ records.forEach(record => {
 
 **Goal:** Run your own BSP infrastructure — your own node/relayer for a private network or regional deployment.
 
-### Step 1 — Deploy the AO processes
+### Step 1 — Deploy the Move modules
 
-BSP uses four AO processes on Arweave. Deploy them in this order (each depends on the previous).
+BSP uses four Move modules on Aptos. Deploy them in this order (each depends on the previous).
 
 ```bash
 cd bsp-spec/contracts  # or obtain from the registry repository
 
 # 1. BEORegistry — stores all biological entity identities
-arweave deploy BEORegistry --wallet ./wallet.json
+aptos move publish BEORegistry --profile default
 
 # 2. IEORegistry — stores all institutional identities
-arweave deploy IEORegistry --wallet ./wallet.json
+aptos move publish IEORegistry --profile default
 
 # 3. AccessControl — manages consent tokens and access permissions
-arweave deploy AccessControl --wallet ./wallet.json \
+aptos move publish AccessControl --profile default \
   --init '{"beoRegistry":"<BEO_TX_ID>","ieoRegistry":"<IEO_TX_ID>"}'
 
 # 4. DomainRegistry — manages the .bsp namespace
-arweave deploy DomainRegistry --wallet ./wallet.json \
+aptos move publish DomainRegistry --profile default \
   --init '{"accessControl":"<ACCESS_CONTROL_TX_ID>"}'
 ```
 
@@ -269,7 +269,7 @@ Save all four transaction IDs. They are permanent and identify your deployment.
 
 ### Step 2 — Set up bsp-registry-api (the relayer)
 
-The relayer is the HTTP API that your apps talk to. It handles batching, caching, and translating REST calls into AO messages.
+The relayer is the HTTP API that your apps talk to. It handles batching, caching, and translating REST calls into Aptos transactions.
 
 ```bash
 git clone https://github.com/Biological-Sovereignty-Protocol/bsp-registry-api
