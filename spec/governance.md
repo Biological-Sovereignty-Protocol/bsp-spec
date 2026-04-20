@@ -71,6 +71,51 @@ This prevents unilateral changes — including by the Institute's founder. The p
 
 ---
 
+## Emergency Operations
+
+Certain conditions require immediate protocol-level action outside the normal BIP review cycle. These operations are authorized by the multi-signature governance threshold and take effect on-chain without waiting for community review.
+
+### Trigger Conditions
+
+| Condition | Examples |
+|---|---|
+| Security incident | Active exploit draining BEO consent tokens, unauthorized mass data read |
+| Key compromise | Institute keyholder private key leaked or suspected stolen |
+| Critical bug | Smart contract logic error with potential for data loss or consent bypass |
+| Regulatory emergency | Court order or regulatory injunction requiring immediate suspension |
+
+### Suspension Action
+
+To suspend an IEO or freeze exchange operations, submit a governance transaction using the `ACTION_SUSPEND_IEO` action type via the Governance contract.
+
+```typescript
+GovernanceAction {
+  action_type: 'ACTION_SUSPEND_IEO'
+  target_ieo:  string       // ieo_id of the institution to suspend
+  reason:      string       // Mandatory — recorded on-chain permanently
+  duration:    number | null // Seconds until auto-expiry, or null for indefinite
+  evidence:    string       // Arweave tx ID of the incident evidence package
+}
+```
+
+For protocol-wide freezes (all exchange halted), use `ACTION_FREEZE_EXCHANGE`. This should be reserved for catastrophic scenarios only.
+
+### Approval Threshold
+
+Emergency actions require a **2-of-3 multi-signature** from the current Institute keyholders. This is the same threshold as critical parameter changes. No single person — including the Institute founder — can unilaterally trigger a suspension.
+
+If a keyholder is unavailable (e.g. the compromise is of their key), a **1-of-2 emergency override** is available with a mandatory 24-hour on-chain delay, after which any remaining keyholder can countermand the action.
+
+### Reactivation Process
+
+1. Incident confirmed resolved (internal post-mortem document published on Arweave).
+2. Submit `ACTION_REINSTATE_IEO` (or `ACTION_UNFREEZE_EXCHANGE`) via Governance contract.
+3. Same 2-of-3 multi-signature threshold applies.
+4. A BIP documenting the incident and any spec-level mitigations is filed within 30 days and fast-tracked to `REVIEW` status.
+5. Reinstated IEO status returns to `ACTIVE`. All suspended consent tokens that were valid at the time of suspension are automatically revalidated unless individually revoked during the suspension window.
+
+---
+
 ## BIP Index
 
 | BIP | Title | Status |
