@@ -93,6 +93,7 @@ bsp-spec/
 | Guide | Who it's for |
 |---|---|
 | [Implementation Guide](docs/implementation-guide.md) | App developers, institution integrators, and protocol operators |
+| [Relayer Specification](docs/RELAYER_SPEC.md) | Anyone running a BSP relayer — interface, trust model, and policies |
 
 The guide covers three paths:
 - **User App Developer** — build an app where users create their BSP identity
