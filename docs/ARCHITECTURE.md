@@ -61,6 +61,8 @@ flowchart LR
 
 The relayer is **infrastructure, not authority**. A compromised relayer cannot modify consent, forge records, or destroy a BEO. The worst a rogue relayer can do is refuse to relay — in which case any other relayer (or the user directly) can take over.
 
+See `docs/RELAYER_SPEC.md` for the full relayer specification, minimum interface, and the permissionless multi-relayer model.
+
 ---
 
 ## Sequence: Create a BEO
@@ -226,5 +228,7 @@ New biomarkers, intents, and IEO types are added through the BIP (BSP Improvemen
 
 - **Glossary** — `docs/GLOSSARY.md`
 - **Error Codes** — `docs/ERROR_CODES.md`
+- **Relayer Specification** — `docs/RELAYER_SPEC.md`
+- **Threat Model** — `docs/THREAT_MODEL.md`
 - **Implementation Guide** — `docs/implementation-guide.md`
 - **Specification** — `spec/overview.md`
